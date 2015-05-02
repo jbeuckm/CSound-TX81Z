@@ -38,7 +38,6 @@ opcode GEN_W2, i, 0
 endop
 
 
-
 opcode GEN_W4, i, 0
 
     isource_table GEN_W2
@@ -220,3 +219,22 @@ endop
 
 
 
+giW1 init 0
+giW2 init 0
+giW3 init 0
+giW4 init 0
+giW5 init 0
+giW6 init 0
+giW7 init 0
+giW8 init 0
+
+instr 81
+giW1 GEN_W1
+giW2 GEN_W2
+giW3 GEN_W3
+giW4 GEN_W4
+giW5 GEN_W5
+giW6 GEN_W6
+giW7 GEN_W7
+giW8 GEN_W8
+endin
