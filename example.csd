@@ -27,11 +27,9 @@ kmod init 0
 kmod ctrl7 1, 7, 0, kcps
 kenv madsr 0.01, 0.1, 0.8, 0.2
 
-itable GEN_W6
-amod  oscili kmod, kcps, giW6
+amod  oscili kmod, kcps, giW1
 
-isin_table GEN_W1
-asig  oscili kenv*kvel, kcps + amod, isin_table
+asig  oscili kenv*kvel, kcps + amod, giW1
      outs  asig, asig
 
 endin
