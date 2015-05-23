@@ -22,18 +22,21 @@ midinoteonoct p4, p5    ;MIDI note number and velocity
 kvel = p5/127           ;scale midi velocity to 0-1
 kpb init 0
 midipitchbend kpb
-koct =  p4+kpb          ;add pitchbend values to octave-point-decimal value
+koct =  p4+kpb/4          ;add pitchbend values to octave-point-decimal value
 kcps =  cpsoct(koct)            ;convert octave-point-decimal value into Hz
+
+kpolyaft polyaft p4, 0, 1.0
+printks "inote = %f, kpolyaft = %f\\n", 1, p4, kpolyaft
 
 kmod init 0
 kmod ctrl7 1, 7, 0, 10 * kcps
 
-kenv mxadsr 0.01, 0.1, .6, 1
+kenv mxadsr 0.01, 0.06, .7, .6
 
-amod  oscili kmod, kcps, giW1
+amod  oscili kmod*(1 + kpolyaft), kcps, giW2
 
 asig  oscili kenv*kvel, kcps + amod, giW1
-     outs  asig, asig
+     outs  .5*asig, .5*asig
 
 endin
 </CsInstruments>
