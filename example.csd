@@ -35,7 +35,7 @@ kenv mxadsr 0.01, 0.06, .7, .6
 
 amod  oscili kmod*(1 + kpolyaft), kcps, giW2
 
-asig  oscili kenv*kvel, kcps + amod, giW1
+asig  oscili kenv*kvel, kcps + amod, giW6
      outs  .5*asig, .5*asig
 
 endin
@@ -44,10 +44,9 @@ endin
 
 f1 0 8192 10 1
 
-f 0 3600
+f 0 3600000
 
 i81 0 -1
-
 
 e
 
